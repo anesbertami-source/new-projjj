@@ -1,0 +1,24 @@
+{
+  "company": {
+    "name": "DELIRIUM",
+    "legalInfo": {
+      "address": "شارع 46",
+      "taxNumber": "20250-6",
+      "commercialRegistryNumber": "576411"
+    },
+    "references": {
+      "journalNumber": "5939",
+      "journalDate": "26/08/2026"
+    },
+    "document": {
+      "subject_ar": "تغيير النشاط",
+      "body_ar": "وبعد، يشرّفني أن أُخبركم أن إعلانكم المتعلّق بشركة DELIRIUM بالاعلانات القانونية والقضائية والإدارية عدد 5939 بتاريخ 26/08/2026"
+    },
+    "signatories": {
+      "director": {
+        "name": "محمد الدوسي",
+        "title": "مدير المطبعة الرسمية"
+      }
+    }
+  }
+}

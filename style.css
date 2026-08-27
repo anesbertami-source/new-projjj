@@ -1,0 +1,450 @@
+:root {
+  --paper-width: 210mm;
+  --paper-height: 297mm;
+  --bg-paper: #ffffff;
+  --text-color: #111;
+  --gold: #f1e58d;
+  --line: #1a1a1a;
+  --muted: #303030;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  background: #ececec;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  color: var(--text-color);
+}
+
+body {
+  min-height: 100vh;
+}
+
+.app-shell {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 24px;
+}
+
+.form-panel {
+  width: 320px;
+  background: #f8f8f8;
+  border: 1px solid #d7d7d7;
+  border-radius: 12px;
+  padding: 18px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+}
+
+.form-panel h1 {
+  margin: 0 0 16px;
+  font-size: 22px;
+}
+
+.form-panel label {
+  display: block;
+  margin-bottom: 12px;
+}
+
+.form-panel span {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.form-panel input,
+.form-panel textarea {
+  width: 100%;
+  padding: 9px 10px;
+  border: 1px solid #cfcfcf;
+  border-radius: 6px;
+  font-size: 14px;
+  background: #fff;
+}
+
+.preview-panel {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding: 12px;
+}
+
+.document-canvas {
+  width: calc(var(--paper-width) + 40px);
+  background: transparent;
+}
+
+.page {
+  position: relative;
+  width: var(--paper-width);
+  height: var(--paper-height);
+  margin: 0 auto 18px;
+  background: var(--bg-paper);
+  font-family: Arial, "Tahoma", sans-serif;
+  color: var(--text-color);
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.rtl {
+  direction: rtl;
+  text-align: right;
+  unicode-bidi: plaintext;
+}
+
+.official-header {
+  position: absolute;
+  top: 10.05mm;
+  right: 12.69mm;
+  text-align: right;
+  direction: rtl;
+  color: var(--text-color);
+  z-index: 3;
+}
+
+.header-line {
+  font-size: 15.18pt;
+  font-weight: 600;
+  line-height: 18pt;
+}
+
+.header-line-main {
+  font-size: 15.18pt;
+  font-weight: 700;
+}
+
+.to-block {
+  position: absolute;
+  top: 33.10mm;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  z-index: 3;
+}
+
+.to-label {
+  font-size: 15.18pt;
+  font-weight: 400;
+  margin-bottom: 6px;
+}
+
+.company-chips {
+  display: flex;
+  justify-content: center;
+}
+
+.highlighted-block {
+  display: inline-block;
+  background: transparent;
+  padding: 0;
+  font-size: 15.18pt;
+  line-height: 18pt;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  min-width: 135px;
+  text-align: center;
+  color: #111;
+}
+
+.subject-line {
+  position: absolute;
+  top: 73.04mm;
+  right: 11.89mm;
+  font-size: 15.18pt;
+  font-weight: 600;
+  direction: rtl;
+  text-align: right;
+  color: #1a1a1a;
+  z-index: 3;
+}
+
+.greeting {
+  position: absolute;
+  top: 100.44mm;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 15.18pt;
+  direction: rtl;
+  unicode-bidi: plaintext;
+  color: #1a1a1a;
+  z-index: 3;
+}
+
+.body-copy {
+  position: absolute;
+  top: 124.92mm;
+  right: 12.69mm;
+  left: 20.12mm;
+  font-size: 15.18pt;
+  line-height: 18pt;
+  text-align: justify;
+  color: #1a1a1a;
+  z-index: 3;
+}
+
+.highlighted-inline {
+  background: transparent;
+  padding: 0;
+  line-height: 1.4;
+  font-weight: 700;
+}
+
+.closing-line {
+  position: absolute;
+  top: 156.45mm;
+  right: 12.69mm;
+  font-size: 15.18pt;
+  direction: rtl;
+  unicode-bidi: plaintext;
+  color: #1a1a1a;
+  z-index: 3;
+}
+
+.signature-area {
+  position: absolute;
+  left: 17.53mm;
+  top: 161.23mm;
+  width: 63.87mm;
+  height: 53.66mm;
+  text-align: center;
+  z-index: 3;
+}
+
+.signature-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+.signature-line {
+  width: 50mm;
+  height: 0;
+  border-top: 1px solid #000;
+  margin: 0 auto 8px;
+}
+
+.signature-role,
+.signature-name {
+  font-size: 12px;
+  line-height: 1.6;
+  direction: rtl;
+}
+
+.stamp-page-1,
+.stamp-page-1-foreground,
+.stamp-right-top {
+  pointer-events: none;
+  user-select: none;
+}
+
+.stamp-backdrop {
+  position: absolute;
+  right: 58mm;
+  bottom: 16mm;
+  width: 58mm;
+  height: 58mm;
+  opacity: 1;
+  z-index: 0;
+}
+
+.stamp-backdrop img,
+.stamp-page-1-foreground img,
+.stamp-right-top img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.stamp-page-1-foreground {
+  position: absolute;
+  left: 92.56mm;
+  top: 160.66mm;
+  width: 56.46mm;
+  height: 55.24mm;
+  z-index: 1;
+  opacity: 1;
+}
+
+.notice-box {
+  position: absolute;
+  top: 8.01mm;
+  left: 12.96mm;
+  width: 60.30mm;
+  min-height: 32.05mm;
+  border: 1px solid #b3bfc1;
+  background: #fff;
+  padding: 0;
+  direction: rtl;
+  text-align: right;
+  z-index: 2;
+}
+
+.notice-title {
+  font-size: 15.18pt;
+  font-weight: 700;
+  margin: 0;
+}
+
+.notice-meta {
+  font-size: 15.18pt;
+  margin: 0;
+}
+
+.gold-text {
+  background: transparent;
+  padding: 0;
+  font-weight: 700;
+}
+
+.stamp-right-top {
+  position: absolute;
+  top: 16.93mm;
+  left: 97.19mm;
+  width: 64.18mm;
+  height: 63.57mm;
+  z-index: 1;
+}
+
+.company-name {
+  position: absolute;
+  right: 12.69mm;
+  top: 30.76mm;
+  width: 24.25mm;
+  height: 7.76mm;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 15.18pt;
+  font-weight: 700;
+  direction: ltr;
+  color: #000;
+  z-index: 2;
+}
+
+.company-details {
+  position: absolute;
+  right: 12.69mm;
+  top: 36.87mm;
+  width: 58.20mm;
+  height: 57.15mm;
+  font-size: 15.18pt;
+  line-height: 18pt;
+  z-index: 2;
+  color: #1a1a1a;
+}
+
+.editable-company-info {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  white-space: pre-line;
+}
+
+.company-change {
+  position: absolute;
+  top: 97.02mm;
+  right: 12.69mm;
+  left: 12.69mm;
+  height: 31.75mm;
+  font-size: 15.18pt;
+  line-height: 18pt;
+  z-index: 2;
+  color: #1a1a1a;
+}
+
+.editable-activity-title,
+.editable-decision-text,
+.editable-activity-text {
+  position: absolute;
+  right: 0;
+  left: 0;
+  overflow: hidden;
+  white-space: pre-line;
+}
+
+.editable-activity-title {
+  top: 0;
+  height: 6.35mm;
+}
+
+.editable-decision-text {
+  top: 6.35mm;
+  height: 12.70mm;
+}
+
+.editable-activity-text {
+  top: 19.05mm;
+  height: 12.70mm;
+}
+
+.change-title {
+  font-size: 15.18pt;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 0;
+}
+
+.legal-deposit {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: auto;
+  top: 131.77mm;
+  text-align: center;
+  font-size: 15.18pt;
+  line-height: 18pt;
+  border-top: 0;
+  padding-top: 0;
+  padding-inline: 12mm;
+  color: #1a1a1a;
+  z-index: 3;
+}
+
+@media (max-width: 1200px) {
+  .app-shell {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .form-panel {
+    width: min(100%, 600px);
+  }
+}
+
+@media print {
+  body {
+    background: #fff;
+  }
+
+  .form-panel {
+    display: none;
+  }
+
+  .app-shell {
+    padding: 0;
+  }
+
+  .preview-panel {
+    padding: 0;
+  }
+
+  .document-canvas {
+    width: auto;
+  }
+
+  .page {
+    box-shadow: none;
+    margin: 0;
+  }
+}

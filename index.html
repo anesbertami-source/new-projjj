@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LegalFlow Document Template</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="form-panel">
+        <h1>Editable information</h1>
+
+        <label>
+          <span>Company name</span>
+          <input id="companyName" type="text" value="DELIRIUM" maxlength="80" />
+        </label>
+
+        <label>
+          <span>Journal number</span>
+          <input id="journalNumber" type="text" value="5939" maxlength="30" />
+        </label>
+
+        <label>
+          <span>Journal date</span>
+          <input id="journalDate" type="text" value="26/08/2026" maxlength="40" />
+        </label>
+
+        <label>
+          <span>Company legal description</span>
+          <textarea id="legalDescription" rows="7">شركة ذات مسؤولية محدودة ذات
+الشريك الوحيد
+
+شارع 46 وعنوان مقرها الاجتماعي: casablanca 55
+
+الزرقطوني، الطابق الثالث، شقة رقم
+
+20250-6 الدار البيضاء المغرب
+
+رقم التقييد في السجل التجاري
+
+900000</textarea>
+        </label>
+
+        <label>
+          <span>Activity section title</span>
+          <input id="activityTitle" type="text" value="تغيير نشاط الشركة" maxlength="120" />
+        </label>
+
+        <label>
+          <span>Decision text</span>
+          <textarea id="decisionText" rows="2">بمقتضى قرار الشريك الوحيد المؤرخ
+في 26/08/2026</textarea>
+        </label>
+
+        <label>
+          <span>Activity change text</span>
+          <textarea id="activityChangeText" rows="3">تم تغيير نشاط الشركة من «التصميم والتخطيط « إلى «تنظيم
+تغيير النشاط</textarea>
+        </label>
+
+        <label>
+          <span>Director name</span>
+          <input id="directorName" type="text" value="محمد الدوسي" maxlength="60" />
+        </label>
+
+        <label>
+          <span>Director title</span>
+          <input id="directorTitle" type="text" value="مدير المطبعة الرسمية" maxlength="80" />
+        </label>
+      </aside>
+
+      <main class="preview-panel">
+        <div class="document-canvas" aria-label="Official document preview">
+          <div class="page page-1">
+            <div class="official-header">
+              <div class="header-line header-line-main">المملكة المغربية</div>
+              <div class="header-line">الأمانة العامة للحكومة</div>
+              <div class="header-line">مديرية المطبعة الرسمية</div>
+            </div>
+
+            <div class="to-block">
+              <div class="to-label">إلى</div>
+              <div class="company-chips">
+                <span class="highlighted-block" data-field="companyName">DELIRIUM</span>
+              </div>
+            </div>
+
+            <div class="subject-line">الموضوع : نشر إعلان بالجريدة الرسمية.</div>
+
+            <div class="greeting">سلام تام بوجود مولانا الإمام</div>
+
+            <div class="body-copy rtl">
+              <div class="first-line">
+                وبعد، يشرّفني أن أُخبركم أن إعلانكم المتعلّق بشركة
+                <span class="highlighted-inline" data-field="companyName">DELIRIUM</span>
+                بالإعلانات القانونية والقضائية والإدارية عدد
+                <span class="highlighted-inline" data-field="journalNumber">5939</span>
+                بتاريخ
+                <span class="highlighted-inline" data-field="journalDate">26/08/2026</span>
+              </div>
+              <div>سيتم نشره بالجريدة الرسمية الخاصة</div>
+            </div>
+
+            <div class="closing-line">و تقبلوْا فائق التحيات و السلام.</div>
+
+            <div class="signature-area">
+              <img class="signature-image" src="output/pdf-images/page-1-image-1.png" alt="" />
+              <div class="signature-role" data-field="directorTitle">مدير المطبعة الرسمية</div>
+              <div class="signature-name">الاسم: <span data-field="directorName">محمد الدوسي</span></div>
+            </div>
+
+            <div class="stamp-page-1-foreground" aria-hidden="true">
+              <img src="stump/IMG_3164-removebg-preview.png" alt="" />
+            </div>
+          </div>
+
+          <div class="page page-2">
+            <div class="notice-box">
+              <div class="notice-title">سينشر هذا الإعلان بالجريدة الرسمية</div>
+              <div class="notice-meta">عدد: <span class="gold-text" data-field="journalNumber">5939</span></div>
+              <div class="notice-meta">بتاريخ: <span class="gold-text" data-field="journalDate">26/08/2026</span></div>
+            </div>
+
+            <div class="stamp-right-top" aria-hidden="true">
+              <img src="stump/IMG_3164-removebg-preview.png" alt="" />
+            </div>
+
+            <div class="company-name" data-field="companyName">DELIRIUM</div>
+
+            <div class="company-details rtl">
+              <div class="editable-company-info" data-field="legalDescription">شركة ذات مسؤولية محدودة ذات
+الشريك الوحيد
+
+شارع 46 وعنوان مقرها الاجتماعي: casablanca 55
+
+الزرقطوني، الطابق الثالث، شقة رقم
+
+20250-6 الدار البيضاء المغرب
+
+رقم التقييد في السجل التجاري
+
+900000</div>
+            </div>
+
+            <div class="company-change rtl">
+              <div class="change-title editable-activity-title" data-field="activityTitle">تغيير نشاط الشركة</div>
+              <div class="editable-decision-text" data-field="decisionText">بمقتضى قرار الشريك الوحيد المؤرخ
+في 26/08/2026</div>
+              <div class="editable-activity-text" data-field="activityChangeText">تم تغيير نشاط الشركة من «التصميم والتخطيط « إلى «تنظيم
+تغيير النشاط</div>
+            </div>
+
+            <div class="legal-deposit rtl">
+              تم الإيداع القانوني بالمحكمة التجارية
+              <div>بالدار البيضاء بتاريخ 29 يوليوز</div>
+              <div>2026 تحت رقم <span data-field="commercialRegistryNumber">1035954</span></div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
