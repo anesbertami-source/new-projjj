@@ -13,17 +13,17 @@
 
         <label>
           <span>Company name</span>
-          <input id="companyName" type="text" value="DELIRIUM" maxlength="80" />
+          <input id="companyName" type="text" value="DELIRIUM" />
         </label>
 
         <label>
           <span>Journal number</span>
-          <input id="journalNumber" type="text" value="5939" maxlength="30" />
+          <input id="journalNumber" type="text" value="5939" />
         </label>
 
-        <label>
+        <label>   b  
           <span>Journal date</span>
-          <input id="journalDate" type="text" value="26/08/2026" maxlength="40" />
+          <input id="journalDate" type="text" value="26/08/2026" />
         </label>
 
         <label>
@@ -44,7 +44,7 @@
 
         <label>
           <span>Activity section title</span>
-          <input id="activityTitle" type="text" value="تغيير نشاط الشركة" maxlength="120" />
+          <input id="activityTitle" type="text" value="تغيير نشاط الشركة" />
         </label>
 
         <label>
@@ -61,13 +61,21 @@
 
         <label>
           <span>Director name</span>
-          <input id="directorName" type="text" value="محمد الدوسي" maxlength="60" />
+          <input id="directorName" type="text" value="محمد الدوسي" />
         </label>
 
         <label>
           <span>Director title</span>
-          <input id="directorTitle" type="text" value="مدير المطبعة الرسمية" maxlength="80" />
+          <input id="directorTitle" type="text" value="مدير المطبعة الرسمية" />
         </label>
+
+        <div class="pdf-actions">
+          <button id="saveDocumentBtn" type="button" class="generate-pdf-btn">Save Document</button>
+          <button id="generatePdfBtn" type="button" class="generate-pdf-btn">Generate PDF</button>
+          <p id="documentStatus" class="pdf-status" role="status" aria-live="polite"></p>
+          <p id="pdfStatus" class="pdf-status" role="status" aria-live="polite"></p>
+          <div id="pdfResult" class="pdf-result" hidden></div>
+        </div>
       </aside>
 
       <main class="preview-panel">
@@ -126,10 +134,11 @@
               <img src="stump/IMG_3164-removebg-preview.png" alt="" />
             </div>
 
-            <div class="company-name" data-field="companyName">DELIRIUM</div>
+            <div class="page-2-flow">
+              <div class="company-name" data-field="companyName">DELIRIUM</div>
 
-            <div class="company-details rtl">
-              <div class="editable-company-info" data-field="legalDescription">شركة ذات مسؤولية محدودة ذات
+              <div class="company-details rtl">
+                <div class="editable-company-info" data-field="legalDescription">شركة ذات مسؤولية محدودة ذات
 الشريك الوحيد
 
 شارع 46 وعنوان مقرها الاجتماعي: casablanca 55
@@ -141,20 +150,21 @@
 رقم التقييد في السجل التجاري
 
 900000</div>
-            </div>
+              </div>
 
-            <div class="company-change rtl">
-              <div class="change-title editable-activity-title" data-field="activityTitle">تغيير نشاط الشركة</div>
-              <div class="editable-decision-text" data-field="decisionText">بمقتضى قرار الشريك الوحيد المؤرخ
+              <div class="company-change rtl">
+                <div class="change-title editable-activity-title" data-field="activityTitle">تغيير نشاط الشركة</div>
+                <div class="editable-decision-text" data-field="decisionText">بمقتضى قرار الشريك الوحيد المؤرخ
 في 26/08/2026</div>
-              <div class="editable-activity-text" data-field="activityChangeText">تم تغيير نشاط الشركة من «التصميم والتخطيط « إلى «تنظيم
+                <div class="editable-activity-text" data-field="activityChangeText">تم تغيير نشاط الشركة من «التصميم والتخطيط « إلى «تنظيم
 تغيير النشاط</div>
-            </div>
+              </div>
 
-            <div class="legal-deposit rtl">
-              تم الإيداع القانوني بالمحكمة التجارية
-              <div>بالدار البيضاء بتاريخ 29 يوليوز</div>
-              <div>2026 تحت رقم <span data-field="commercialRegistryNumber">1035954</span></div>
+              <div class="legal-deposit rtl">
+                تم الإيداع القانوني بالمحكمة التجارية
+                <div>بالدار البيضاء بتاريخ <span class="normal-number">29</span> يوليوز</div>
+                <div><span class="normal-number">2026</span> تحت رقم <span data-field="commercialRegistryNumber">1035954</span></div>
+              </div>
             </div>
           </div>
         </div>

@@ -1,0 +1,17 @@
+{
+  "name": "new-projjj",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Legal document editor with A4 PDF generation",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "generate-pdf": "node generate-reference-pdf.cjs",
+    "test:pdf": "node verify-fixed-pages.cjs",
+    "test:pagination": "node test-dynamic-pagination.cjs"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "playwright": "^1.52.0"
+  }
+}

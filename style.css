@@ -1,3 +1,19 @@
+@font-face {
+  font-family: "AlArabiyaLocal";
+  src: url("assets/fonts/Alarabiya%20Normal%20Font.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "AlArabiyaLocal";
+  src: url("assets/fonts/Alarabiya Normal Font.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --paper-width: 210mm;
   --paper-height: 297mm;
@@ -17,7 +33,7 @@ body {
   margin: 0;
   min-height: 100%;
   background: #ececec;
-  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-family: "AlArabiaLocal";
   color: var(--text-color);
 }
 
@@ -69,6 +85,50 @@ body {
   background: #fff;
 }
 
+.pdf-actions {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid #ddd;
+}
+
+.generate-pdf-btn {
+  width: 100%;
+  padding: 12px 14px;
+  border: 0;
+  border-radius: 8px;
+  background: #1f5fbf;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.generate-pdf-btn:hover:not(:disabled) {
+  background: #184c99;
+}
+
+.generate-pdf-btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.pdf-status {
+  margin: 10px 0 0;
+  min-height: 1.2em;
+  font-size: 12px;
+  color: #444;
+}
+
+.pdf-status-error {
+  color: #b00020;
+}
+
+.pdf-result a {
+  color: #1f5fbf;
+  font-size: 12px;
+  text-decoration: underline;
+}
+
 .preview-panel {
   flex: 1;
   display: flex;
@@ -85,12 +145,37 @@ body {
   position: relative;
   width: var(--paper-width);
   height: var(--paper-height);
+  max-height: var(--paper-height);
   margin: 0 auto 18px;
   background: var(--bg-paper);
-  font-family: Arial, "Tahoma", sans-serif;
+  font-family: "AlArabiyaLocal", Arial, sans-serif !important;
   color: var(--text-color);
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  flex-shrink: 0;
+}
+
+.page-continuation {
+  page-break-before: always;
+  break-before: page;
+}
+
+.page-continuation-flow {
+  padding-top: 15mm;
+}
+
+#pagination-measure-root {
+  position: fixed;
+  left: -10000px;
+  top: 0;
+  visibility: hidden;
+  pointer-events: none;
+  z-index: -1;
+}
+
+#pagination-measure-root .page-measure {
+  margin: 0;
+  box-shadow: none;
 }
 
 .rtl {
@@ -138,6 +223,26 @@ body {
 .company-chips {
   display: flex;
   justify-content: center;
+  font-family: "AlArabiyaLocal", sans-serif !important;
+}
+
+[data-field="journalNumber"],
+[data-field="journalDate"],
+[data-field="taxNumber"],
+[data-field="commercialRegistryNumber"] {
+  font-family: Arial, "Tahoma", sans-serif !important;
+}
+
+.page-2 [data-field="journalNumber"],
+.page-2 [data-field="journalDate"],
+.page-2 [data-field="taxNumber"],
+.page-2 [data-field="commercialRegistryNumber"],
+.page-2 .normal-number {
+  font-family: Arial, "Tahoma", sans-serif !important;
+}
+
+.normal-numbers {
+  font-family: Arial, "Tahoma", sans-serif !important;
 }
 
 .highlighted-block {
@@ -275,11 +380,19 @@ body {
   opacity: 1;
 }
 
+.page-2-flow {
+  position: relative;
+  width: auto;
+  margin: 0 12.69mm;
+  padding-top: 30.76mm;
+  direction: rtl;
+}
+
 .notice-box {
   position: absolute;
   top: 8.01mm;
   left: 12.96mm;
-  width: 60.30mm;
+  width: 80.30mm;
   min-height: 32.05mm;
   border: 1px solid #b3bfc1;
   background: #fff;
@@ -316,26 +429,23 @@ body {
 }
 
 .company-name {
-  position: absolute;
-  right: 12.69mm;
-  top: 30.76mm;
-  width: 24.25mm;
-  height: 7.76mm;
-  overflow: hidden;
+  position: static;
+  width: 27.25mm;
+  height: auto;
+  overflow: visible;
   white-space: nowrap;
   font-size: 15.18pt;
   font-weight: 700;
   direction: ltr;
   color: #000;
+  font-family: Arial, "Tahoma", sans-serif !important;
   z-index: 2;
 }
 
 .company-details {
-  position: absolute;
-  right: 12.69mm;
-  top: 36.87mm;
+  position: static;
   width: 58.20mm;
-  height: 57.15mm;
+  height: auto;
   font-size: 15.18pt;
   line-height: 18pt;
   z-index: 2;
@@ -343,20 +453,19 @@ body {
 }
 
 .editable-company-info {
-  position: absolute;
-  inset: 0;
+  position: static;
   width: 100%;
-  height: 100%;
-  overflow: hidden;
+  height: auto;
+  overflow: visible;
   white-space: pre-line;
+  break-inside: auto;
+  page-break-inside: auto;
 }
 
 .company-change {
-  position: absolute;
-  top: 97.02mm;
-  right: 12.69mm;
-  left: 12.69mm;
-  height: 31.75mm;
+  position: static;
+  width: 100%;
+  height: auto;
   font-size: 15.18pt;
   line-height: 18pt;
   z-index: 2;
@@ -366,28 +475,29 @@ body {
 .editable-activity-title,
 .editable-decision-text,
 .editable-activity-text {
-  position: absolute;
-  right: 0;
-  left: 0;
-  overflow: hidden;
+  position: static;
+  width: 100%;
+  height: auto;
+  overflow: visible;
   white-space: pre-line;
+  break-inside: auto;
+  page-break-inside: auto;
 }
 
 .editable-activity-title {
-  top: 0;
-  height: 6.35mm;
+  font-size: 15.18pt;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 8px;
 }
 
 .editable-decision-text {
-  top: 6.35mm;
-  height: 12.70mm;
+  margin-bottom: 8px;
 }
 
 .editable-activity-text {
-  top: 19.05mm;
-  height: 12.70mm;
+  margin-bottom: 12px;
 }
-
 .change-title {
   font-size: 15.18pt;
   font-weight: 700;
@@ -396,19 +506,16 @@ body {
 }
 
 .legal-deposit {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: auto;
-  top: 131.77mm;
-  text-align: center;
+  position: relative;
+  width: 350px;
+  height: auto;
+  left:49px;
+  top:2px;
   font-size: 15.18pt;
   line-height: 18pt;
   border-top: 0;
   padding-top: 0;
   padding-inline: 12mm;
-  color: #1a1a1a;
-  z-index: 3;
 }
 
 @media (max-width: 1200px) {
@@ -446,5 +553,20 @@ body {
   .page {
     box-shadow: none;
     margin: 0;
+    width: var(--paper-width);
+    height: var(--paper-height);
+    max-height: var(--paper-height);
+    overflow: hidden;
+    page-break-after: always;
+    break-after: page;
+  }
+
+  .page:last-child {
+    page-break-after: auto;
+    break-after: auto;
+  }
+
+  #pagination-measure-root {
+    display: none !important;
   }
 }

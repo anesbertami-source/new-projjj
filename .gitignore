@@ -1,0 +1,18 @@
+node_modules/
+.venv/
+.venv-1/
+.env
+.env.*
+
+# Local editor persistence and generated PDF files
+data/*.json
+output/*.pdf
+output/annonce-*.pdf
+output/api-*.pdf
+output/*-integration.pdf
+output/*-check.pdf
+output/minimal-debug.pdf
+
+# Generated inspection images
+output/*.png
+output/pdf-images/*.png
